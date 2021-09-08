@@ -1,0 +1,16 @@
+.head {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background-color: #385461;
+  color: white;
+}
+
+.logo {
+  width: 3rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin: 0;
+}

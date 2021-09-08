@@ -1,0 +1,11 @@
+@value makerWhite from "../../coomon/colors.css"
+
+.container {
+  width: 90%;
+}
+
+.main {
+  background-color: makerWhite;
+  width: 100%;
+  height: 100px;
+}

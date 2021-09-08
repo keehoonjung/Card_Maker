@@ -1,0 +1,40 @@
+@value makerGreen,makerWhite from "/src/common/colors.css";
+button {
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 580px;
+  min-width: 520px;
+  height: 500px;
+  min-height: 380px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  padding-bottom: 1rem;
+}
+
+.login_title {
+  font-size: 2rem;
+  margin: 1.8rem;
+}
+
+.login_btn {
+  width: 95%;
+  border: 2px solid #385461;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
