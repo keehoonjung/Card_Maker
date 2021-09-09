@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.name,
+.company,
+.color,
+.jop,
+.email {
+  outline: none;
+  border: 1px solid black;
+}
+
+.name,
+.company,
+.color {
+  flex-basis: 1 1 1 33.3%;
+}
+
+.jop,
+.email {
+  flex-basis: 50%;
+}
+
+.message {
+  flex-basis: 100%;
+}

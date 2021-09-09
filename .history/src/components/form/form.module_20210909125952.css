@@ -1,0 +1,48 @@
+input,
+textarea,
+select,
+button {
+  border: none;
+  outline: none;
+}
+
+input {
+  width: 100%;
+  padding: 0.3rem;
+}
+
+select {
+  width: 100%;
+}
+
+.textarea {
+  resize: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 2rem;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+th {
+  border: 1px solid black;
+  width: 33.3%;
+}
+
+.contaier {
+  display: flex;
+}
+
+.message {
+  width: 100%;
+  padding: 0.2rem;
+}
+
+.uploadBtn,
+.deleteBtn {
+  width: 100%;
+}

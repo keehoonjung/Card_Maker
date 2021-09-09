@@ -1,0 +1,27 @@
+input,
+form,
+select {
+  border: none;
+  outline: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 2rem;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+tr {
+  border: 1px solid black;
+}
+
+.contaier {
+  display: flex;
+}
+
+.name {
+  width: 100%;
+}

@@ -1,0 +1,23 @@
+input,
+textarea,
+select,
+button {
+  border: none;
+  outline: none;
+}
+
+.form {
+  margin: auto;
+  margin-top: 2rem;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+th {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.contaier {
+  display: flex;
+}

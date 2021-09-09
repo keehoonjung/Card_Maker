@@ -1,0 +1,13 @@
+.card {
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  width: 10rem;
+  margin: 2rem;
+}
+
+.description {
+  text-align: start;
+}

@@ -1,0 +1,40 @@
+@value makerShadow,makerWhite,makerWheat,makerBlack,makerColorful from "/src/common/colors.css";
+
+.card {
+  display: flex;
+  align-items: center;
+  background-color: makerBlack;
+  color: makerWhite;
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 15px 5px makerShadow;
+}
+
+.image {
+  width: 10rem;
+  margin: 2em;
+  border-radius: 50%;
+}
+
+.description {
+  text-align: start;
+  line-height: 1.8rem;
+  flex: 100%;
+  margin-left: 1em;
+}
+
+.vertical {
+  border: none;
+  margin-left: 0;
+  margin-top: 0.2rem;
+  border-top: 1px solid makerWheat;
+  width: 95%;
+  height: 1px;
+}
+
+.name,
+p {
+  margin: 0;
+}

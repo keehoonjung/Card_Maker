@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 2rem;
+  width: 80%;
+}
+
+.contaier {
+  display: flex;
+}
+
+.name,
+.company,
+.color {
+  width: 33%;
+  padding: 0.2rem;
+  border: 1px solid black;
+  border-right: none;
+}

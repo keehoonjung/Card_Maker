@@ -1,0 +1,19 @@
+input,
+textarea,
+select,
+button {
+  border: none;
+  outline: none;
+}
+
+.form {
+  display: table;
+  margin: auto;
+  margin-top: 2rem;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.container {
+  border: 1px solid black;
+}

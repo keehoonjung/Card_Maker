@@ -1,0 +1,26 @@
+input,
+textarea,
+select,
+button {
+  border: none;
+  outline: none;
+}
+
+.form {
+  display: table;
+  margin: auto;
+  margin-top: 2rem;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.containers {
+  display: table-cell;
+  width: 33.3%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.color {
+  width: 100%;
+}

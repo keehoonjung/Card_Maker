@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 2rem;
+  width: 80%;
+}
+
+.contaier {
+  display: flex;
+}
+
+.name,
+.company,
+.color {
+  width: 33.3%;
+  padding: 0.2rem;
+  border: 1px solid black;
+  border-right: none;
+}
+
+.color {
+  border: 1px solid black;
+}
+
+.jop,
+.email {
+  width: 50%;
+  padding: 0.3rem;
+}
+
+.message {
+  width: 100%;
+}
+
+.uploadBtn,
+.deleteBtn {
+  width: 50%;
+  margin: 0;
+}

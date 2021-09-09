@@ -1,0 +1,12 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contaier {
+  flex: 100%;
+}
+
+input {
+  width: 100%;
+}

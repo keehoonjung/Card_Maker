@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 2rem;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.contaier {
+  display: flex;
+}
+
+.name {
+  width: 100%;
+}
