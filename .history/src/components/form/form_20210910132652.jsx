@@ -3,76 +3,72 @@ import Button from "../button/button";
 import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./form.module.css";
 
-const Form = ({ card, deleteCard, updateCard }) => {
-  const onChange = (event) => {
-    if (event.currentTarget == null) {
-      return;
-    }
-    event.preventDefault();
-    updateCard({
-      ...card,
-      [event.currentTarget.name]: event.currentTarget.value,
-    });
-  };
-
+const Form = ({ card, setNewCard }) => {
+  const formRef = React.createRef();
+  const nameRef = React.createRef();
+  const companyRef = React.createRef();
+  const selectRef = React.createRef();
+  const jopRef = React.createRef();
+  const emailRef = React.createRef();
+  const textareaRef = React.createRef();
   const onSubmit = (event) => {
     event.preventDefault();
-    deleteCard(card.id);
+    const cardForm = {
+      id: "5",
+      name: nameRef.current.value,
+      company: nameRef.current.value,
+      email: emailRef.current.value,
+      message: textareaRef.current.value,
+      image: "/images/default_logo.png",
+      type: selectRef.current.value,
+    };
+    setNewCard(cardForm);
+    textareaRef.reset();
   };
   return (
-    <form className={styles.form}>
+    <form ref={formRef} className={styles.form}>
       <input
-        name="name"
-        placeholder="Name"
+        ref={nameRef}
         className={styles.input}
         type="text"
         value={card.name}
-        onChange={onChange}
       />
       <input
-        name="company"
-        placeholder="Company"
+        ref={companyRef}
         className={styles.input}
         type="text"
         value={card.company}
-        onChange={onChange}
       />
       <select
+        ref={selectRef}
         className={styles.select}
-        name="type"
+        name="select"
         value={card.type}
-        onChange={onChange}
       >
         <option value="dark">dark</option>
         <option value="light">light</option>
         <option value="colorful">colorful</option>
       </select>
       <input
-        name="jop"
-        placeholder="Jop"
+        ref={jopRef}
         className={styles.input}
         type="text"
         value={card.jop}
-        onChange={onChange}
       />
       <input
-        name="email"
-        placeholder="Email"
+        ref={emailRef}
         className={styles.input}
         type="text"
         value={card.email}
-        onChange={onChange}
       />
       <textarea
-        name="message"
-        placeholder="Message"
+        ref={textareaRef}
         className={styles.textarea}
         name=""
         id=""
         cols="30"
         rows="3"
         value={card.message}
-        onChange={onChange}
       ></textarea>
       <div className={styles.fileInput}>
         <ImageFileInput />

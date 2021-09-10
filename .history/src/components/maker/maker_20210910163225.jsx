@@ -40,20 +40,20 @@ const Maker = ({ authService }) => {
     },
   });
 
-  const deleteCard = (id) => {
-    setCards((cards) => {
-      const updated = { ...cards };
-      delete updated[id];
-      return updated;
-    });
+  const addCard = (card) => {
+    setCards([...cards, card]);
   };
 
-  const AddandUpdateCard = (card) => {
-    setCards((cards) => {
-      const updated = { ...cards };
-      updated[card.id] = card;
-      return updated;
-    });
+  const deleteCard = (id) => {
+    const number = cards.findIndex((card) => card.id === id);
+    const newCard = [...cards];
+    newCard.splice(number, 1);
+    setCards(newCard);
+  };
+
+  const updateCard = (card) => {
+    const newCard = { ...cards };
+    newCard[card.id] = card;
   };
 
   const history = useHistory();
@@ -75,9 +75,9 @@ const Maker = ({ authService }) => {
       <section className={styles.main}>
         <Editor
           cards={cards}
-          addCard={AddandUpdateCard}
+          addCard={addCard}
           deleteCard={deleteCard}
-          updateCard={AddandUpdateCard}
+          updateCard={updateCard}
         />
         <hr />
         <Preview cards={cards} />

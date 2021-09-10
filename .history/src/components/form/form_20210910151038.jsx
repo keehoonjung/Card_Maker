@@ -1,28 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 import Button from "../button/button";
 import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./form.module.css";
 
-const Form = ({ card, deleteCard, updateCard }) => {
+const Form = ({ card, deleteItem }) => {
+  const formRef = useRef();
+  const nameRef = useRef();
+  const companyRef = useRef();
+  const selectRef = useRef();
+  const jopRef = useRef();
+  const emailRef = useRef();
+  const textareaRef = useRef();
+
   const onChange = (event) => {
-    if (event.currentTarget == null) {
-      return;
-    }
-    event.preventDefault();
-    updateCard({
-      ...card,
-      [event.currentTarget.name]: event.currentTarget.value,
-    });
+    console.log(event);
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    deleteCard(card.id);
+    deleteItem(card.id);
   };
   return (
     <form className={styles.form}>
       <input
-        name="name"
+        ref={nameRef}
         placeholder="Name"
         className={styles.input}
         type="text"
@@ -30,7 +31,7 @@ const Form = ({ card, deleteCard, updateCard }) => {
         onChange={onChange}
       />
       <input
-        name="company"
+        ref={companyRef}
         placeholder="Company"
         className={styles.input}
         type="text"
@@ -38,8 +39,9 @@ const Form = ({ card, deleteCard, updateCard }) => {
         onChange={onChange}
       />
       <select
+        ref={selectRef}
         className={styles.select}
-        name="type"
+        name="select"
         value={card.type}
         onChange={onChange}
       >
@@ -48,7 +50,7 @@ const Form = ({ card, deleteCard, updateCard }) => {
         <option value="colorful">colorful</option>
       </select>
       <input
-        name="jop"
+        ref={jopRef}
         placeholder="Jop"
         className={styles.input}
         type="text"
@@ -56,7 +58,7 @@ const Form = ({ card, deleteCard, updateCard }) => {
         onChange={onChange}
       />
       <input
-        name="email"
+        ref={emailRef}
         placeholder="Email"
         className={styles.input}
         type="text"
@@ -64,7 +66,7 @@ const Form = ({ card, deleteCard, updateCard }) => {
         onChange={onChange}
       />
       <textarea
-        name="message"
+        ref={textareaRef}
         placeholder="Message"
         className={styles.textarea}
         name=""

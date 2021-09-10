@@ -7,8 +7,8 @@ import Preview from "../preview/preview";
 import styles from "./maker.module.css";
 
 const Maker = ({ authService }) => {
-  const [cards, setCards] = useState({
-    1: {
+  const [cards, setCards] = useState([
+    {
       id: "1",
       name: "ellie",
       company: "kakao",
@@ -18,7 +18,7 @@ const Maker = ({ authService }) => {
       image: "/images/default_logo.png",
       type: "dark",
     },
-    2: {
+    {
       id: "2",
       name: "JK",
       company: "samsung",
@@ -28,7 +28,7 @@ const Maker = ({ authService }) => {
       image: "/images/default_logo.png",
       type: "light",
     },
-    3: {
+    {
       id: "3",
       name: "Jangfor",
       company: "google",
@@ -38,22 +38,21 @@ const Maker = ({ authService }) => {
       image: "/images/default_logo.png",
       type: "colorful",
     },
-  });
+  ]);
 
-  const deleteCard = (id) => {
-    setCards((cards) => {
-      const updated = { ...cards };
-      delete updated[id];
-      return updated;
-    });
+  const setNewCard = (card) => {
+    setCards([...cards, card]);
   };
 
-  const AddandUpdateCard = (card) => {
-    setCards((cards) => {
-      const updated = { ...cards };
-      updated[card.id] = card;
-      return updated;
-    });
+  const deleteCard = (id) => {
+    const number = cards.findIndex((card) => card.id === id);
+    const newCard = [...cards];
+    newCard.splice(number, 1);
+    setCards(newCard);
+  };
+
+  const updateCard = (card) => {
+    console.log(card);
   };
 
   const history = useHistory();
@@ -75,9 +74,9 @@ const Maker = ({ authService }) => {
       <section className={styles.main}>
         <Editor
           cards={cards}
-          addCard={AddandUpdateCard}
+          setNewCard={setNewCard}
           deleteCard={deleteCard}
-          updateCard={AddandUpdateCard}
+          updateCard={updateCard}
         />
         <hr />
         <Preview cards={cards} />

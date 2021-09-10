@@ -1,23 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import Button from "../button/button";
 import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./form.module.css";
 
-const Form = ({ card, deleteCard, updateCard }) => {
+const Form = ({ card, deleteItem }) => {
   const onChange = (event) => {
-    if (event.currentTarget == null) {
+    if (event.target == null) {
       return;
     }
     event.preventDefault();
-    updateCard({
-      ...card,
-      [event.currentTarget.name]: event.currentTarget.value,
-    });
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    deleteCard(card.id);
+    deleteItem(card.id);
   };
   return (
     <form className={styles.form}>

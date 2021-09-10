@@ -1,4 +1,4 @@
-import React from "react";
+import Reactfrom "react";
 import Button from "../button/button";
 import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./form.module.css";

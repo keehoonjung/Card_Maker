@@ -41,18 +41,16 @@ const Maker = ({ authService }) => {
   });
 
   const deleteCard = (id) => {
-    setCards((cards) => {
-      const updated = { ...cards };
-      delete updated[id];
-      return updated;
-    });
+    const number = cards.findIndex((card) => card.id === id);
+    const newCard = [...cards];
+    newCard.splice(number, 1);
+    setCards(newCard);
   };
 
   const AddandUpdateCard = (card) => {
     setCards((cards) => {
       const updated = { ...cards };
       updated[card.id] = card;
-      return updated;
     });
   };
 
