@@ -1,0 +1,19 @@
+@value makerGreen from "/src/common/colors.css";
+
+.editor {
+  position: fixed
+  text-align: center;
+  flex: 50%;
+  padding: 0.5em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.title {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1em;
+  color: makerGreen;
+}

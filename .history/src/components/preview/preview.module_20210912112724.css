@@ -1,0 +1,22 @@
+@value makerGreen from "/src/common/colors.css";
+
+.preview {
+  text-align: center;
+  height: 100%;
+  flex: 50%;
+  padding: 0.5em 2em;
+  overflow-y: auto;
+}
+
+.title {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1em;
+  color: makerGreen;
+}
+
+@media screen and (max-width: 62rem) {
+  .preview {
+    width: 80%;
+  }
+}
