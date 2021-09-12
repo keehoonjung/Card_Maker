@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import styles from "./header.module.css";
 
 const Header = memo(({ onLogout }) => {

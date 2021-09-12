@@ -13,22 +13,23 @@ const AddForm = memo(({ FileInput, addCard }) => {
   const textareaRef = useRef();
   const [file, setFile] = useState({ imageName: null, url: null });
 
+  console.log("hello");
   const onSubmit = (event) => {
     event.preventDefault();
-    const card = {
+    const cardForm = {
       id: Date.now(),
       name: nameRef.current.value || "",
       company: nameRef.current.value || "",
       jop: jopRef.current.value || "",
       email: emailRef.current.value || "",
       message: textareaRef.current.value || "",
-      fileURL: file.url || "",
-      fileName: file.imageName || "",
+      url: file.url || "",
+      image: file.imageName || "",
       type: selectRef.current.value,
     };
+    addCard(cardForm);
     formRef.current.reset();
     setFile({ imageName: null, url: null });
-    addCard(card);
   };
 
   const uploadImage = (url, image) => {

@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./app";
@@ -14,7 +14,7 @@ const databaseService = new Database();
 
 const FileInput = memo((props) => (
   <ImageFileInput {...props} uploadService={uploadService} />
-));
+);)
 
 ReactDOM.render(
   <React.StrictMode>

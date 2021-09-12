@@ -6,15 +6,11 @@ import Header from "../header/header";
 import Preview from "../preview/preview";
 import styles from "./maker.module.css";
 
-const Maker = ({ FileInput, authService, databaseService }) => {
+const Maker = ({ authService, FileInput, databaseService }) => {
   const history = useHistory();
   const historyState = history?.location?.state;
   const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(historyState && historyState.id);
-
-  const onLogout = useCallback(() => {
-    authService.logout();
-  }, [authService]);
 
   useEffect(() => {
     if (!userId) {
@@ -49,16 +45,20 @@ const Maker = ({ FileInput, authService, databaseService }) => {
   );
 
   const deleteCard = useCallback(
-    (card) => {
+    (id) => {
       setCards((cards) => {
         const updated = { ...cards };
-        delete updated[card.id];
+        delete updated[id];
         return updated;
       });
-      databaseService.deleteData(userId, card.id);
+      databaseService.deleteData(userId, id);
     },
     [databaseService, userId]
   );
+
+  const onLogout = useCallback(() => {
+    authService.logout();
+  }, [authService]);
 
   return (
     <section className={styles.container}>
@@ -68,8 +68,8 @@ const Maker = ({ FileInput, authService, databaseService }) => {
           FileInput={FileInput}
           cards={cards}
           addCard={AddandUpdateCard}
-          updateCard={AddandUpdateCard}
           deleteCard={deleteCard}
+          updateCard={AddandUpdateCard}
         />
         <hr />
         <Preview cards={cards} />
@@ -80,3 +80,37 @@ const Maker = ({ FileInput, authService, databaseService }) => {
 };
 
 export default Maker;
+
+// 1: {
+//   id: "1",
+//   name: "ellie",
+//   company: "kakao",
+//   jop: "programmer",
+//   email: "kuku6471@naver.com",
+//   message: "dont give up",
+//   image: "bob",
+//   url: "/images/default_logo.png",
+//   type: "dark",
+// },
+// 2: {
+//   id: "2",
+//   name: "JK",
+//   company: "samsung",
+//   jop: "programmer",
+//   email: "kuku6471@naver.com",
+//   message: "dont give up",
+//   image: "sam",
+//   url: "/images/default_logo.png",
+//   type: "light",
+// },
+// 3: {
+//   id: "3",
+//   name: "Jangfor",
+//   company: "google",
+//   jop: "programmer",
+//   email: "kuku6471@naver.com",
+//   message: "be Happy",
+//   image: "song",
+//   url: "https://res.cloudinary.com/dpvhkp8oq/image/upload/v1631275816/siix1qvgt29iwgs97fa9.jpg",
+//   type: "colorful",
+// },

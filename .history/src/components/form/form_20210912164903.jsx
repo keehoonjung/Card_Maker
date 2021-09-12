@@ -26,8 +26,9 @@ const Form = memo(({ FileInput, card, updateCard, deleteCard }) => {
     });
   };
 
-  const onSubmit = () => {
-    deleteCard(card);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    deleteCard(card.id);
   };
   return (
     <form className={styles.form}>
@@ -84,7 +85,7 @@ const Form = memo(({ FileInput, card, updateCard, deleteCard }) => {
         onChange={onChange}
       ></textarea>
       <div className={styles.fileInput}>
-        <FileInput uploadImage={uploadImage} name={fileName} />
+        <FileInput uploadImage={uploadImage} name={image ? image : undefined} />
       </div>
       <Button name="Delete" onclick={onSubmit} />
     </form>

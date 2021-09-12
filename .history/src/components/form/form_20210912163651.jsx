@@ -2,11 +2,8 @@ import React, { memo } from "react";
 import Button from "../button/button";
 import styles from "./form.module.css";
 
-const Form = memo(({ FileInput, card, updateCard, deleteCard }) => {
+const Form = memo(({ FileInput, card, deleteCard, updateCard }) => {
   console.log("hello");
-
-  const { name, company, jop, email, message, type, fileName } = card;
-
   const onChange = (event) => {
     if (event.currentTarget == null) {
       return;
@@ -18,16 +15,17 @@ const Form = memo(({ FileInput, card, updateCard, deleteCard }) => {
     });
   };
 
-  const uploadImage = (fileURL, fileName) => {
+  const uploadImage = (url, image) => {
     updateCard({
       ...card,
-      fileName,
-      fileURL,
+      url,
+      image,
     });
   };
 
-  const onSubmit = () => {
-    deleteCard(card);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    deleteCard(card.id);
   };
   return (
     <form className={styles.form}>
@@ -36,7 +34,7 @@ const Form = memo(({ FileInput, card, updateCard, deleteCard }) => {
         placeholder="Name"
         className={styles.input}
         type="text"
-        value={name}
+        value={card.name}
         onChange={onChange}
       />
       <input
@@ -44,13 +42,13 @@ const Form = memo(({ FileInput, card, updateCard, deleteCard }) => {
         placeholder="Company"
         className={styles.input}
         type="text"
-        value={company}
+        value={card.company}
         onChange={onChange}
       />
       <select
         className={styles.select}
         name="type"
-        value={type}
+        value={card.type}
         onChange={onChange}
       >
         <option value="dark">dark</option>
@@ -62,7 +60,7 @@ const Form = memo(({ FileInput, card, updateCard, deleteCard }) => {
         placeholder="Jop"
         className={styles.input}
         type="text"
-        value={jop}
+        value={card.jop}
         onChange={onChange}
       />
       <input
@@ -70,7 +68,7 @@ const Form = memo(({ FileInput, card, updateCard, deleteCard }) => {
         placeholder="Email"
         className={styles.input}
         type="text"
-        value={email}
+        value={card.email}
         onChange={onChange}
       />
       <textarea
@@ -80,11 +78,14 @@ const Form = memo(({ FileInput, card, updateCard, deleteCard }) => {
         id=""
         cols="30"
         rows="3"
-        value={message}
+        value={card.message}
         onChange={onChange}
       ></textarea>
       <div className={styles.fileInput}>
-        <FileInput uploadImage={uploadImage} name={fileName} />
+        <FileInput
+          uploadImage={uploadImage}
+          name={card.image ? card.image : undefined}
+        />
       </div>
       <Button name="Delete" onclick={onSubmit} />
     </form>

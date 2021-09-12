@@ -7,11 +7,11 @@ import Preview from "../preview/preview";
 import styles from "./maker.module.css";
 
 const Maker = ({ FileInput, authService, databaseService }) => {
-  const history = useHistory();
   const historyState = history?.location?.state;
   const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(historyState && historyState.id);
 
+  const history = useHistory();
   const onLogout = useCallback(() => {
     authService.logout();
   }, [authService]);
@@ -49,13 +49,13 @@ const Maker = ({ FileInput, authService, databaseService }) => {
   );
 
   const deleteCard = useCallback(
-    (card) => {
+    (id) => {
       setCards((cards) => {
         const updated = { ...cards };
-        delete updated[card.id];
+        delete updated[id];
         return updated;
       });
-      databaseService.deleteData(userId, card.id);
+      databaseService.deleteData(userId, id);
     },
     [databaseService, userId]
   );
@@ -68,8 +68,8 @@ const Maker = ({ FileInput, authService, databaseService }) => {
           FileInput={FileInput}
           cards={cards}
           addCard={AddandUpdateCard}
-          updateCard={AddandUpdateCard}
           deleteCard={deleteCard}
+          updateCard={AddandUpdateCard}
         />
         <hr />
         <Preview cards={cards} />

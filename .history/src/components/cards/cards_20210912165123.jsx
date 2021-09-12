@@ -8,17 +8,17 @@ const Cards = memo(({ card }) => {
   const url = fileURL || DEFAULT_IMAGE;
   return (
     <>
-      <li className={`${styles.card} ${selectType(type)}`}>
-        <img className={styles.image} src={url} alt="" />
+      <section className={`${styles.card} ${selectType(type)}`}>
+        <img className={styles.image} src={card.url} alt="" />
         <div className={styles.description}>
-          <h2 className={styles.name}>{name}</h2>
-          <p>{company}</p>
+          <h2 className={styles.name}>{card.name}</h2>
+          <p>{card.company}</p>
           <hr className={styles.vertical} />
-          <p>{jop}</p>
-          <p>{email}</p>
-          <p>{message}</p>
+          <p>{card.jop}</p>
+          <p>{card.email}</p>
+          <p>{card.message}</p>
         </div>
-      </li>
+      </section>
     </>
   );
 });

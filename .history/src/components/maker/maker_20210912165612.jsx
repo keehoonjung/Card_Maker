@@ -7,11 +7,11 @@ import Preview from "../preview/preview";
 import styles from "./maker.module.css";
 
 const Maker = ({ FileInput, authService, databaseService }) => {
-  const history = useHistory();
   const historyState = history?.location?.state;
   const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(historyState && historyState.id);
 
+  const history = useHistory();
   const onLogout = useCallback(() => {
     authService.logout();
   }, [authService]);

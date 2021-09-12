@@ -15,7 +15,7 @@ const AddForm = memo(({ FileInput, addCard }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const card = {
+    const cardForm = {
       id: Date.now(),
       name: nameRef.current.value || "",
       company: nameRef.current.value || "",
@@ -28,7 +28,7 @@ const AddForm = memo(({ FileInput, addCard }) => {
     };
     formRef.current.reset();
     setFile({ imageName: null, url: null });
-    addCard(card);
+    addCard(cardForm);
   };
 
   const uploadImage = (url, image) => {

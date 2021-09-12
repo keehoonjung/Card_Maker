@@ -5,6 +5,6 @@ const Footer = memo((props) => (
   <footer className={styles.footer}>
     <p>Code your dream</p>
   </footer>
-));
+);)
 
 export default Footer;

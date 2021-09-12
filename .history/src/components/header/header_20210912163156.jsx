@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import styles from "./header.module.css";
 
 const Header = memo(({ onLogout }) => {
+  console.log("hleo");
   return (
     <header className={styles.head}>
       {onLogout && (
